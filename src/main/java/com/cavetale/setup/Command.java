@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 public enum Command {
     CHECK("Check if installed plugins match"),
     DOWNLOAD("Download plugins"),
-    PRINT("Print all plugins");
+    PRINT("Print all plugins"),
+    LINK("Create missing symlinks"),
+    UNLINK("Delete superfluous symlinks");
 
     public final String description;
 

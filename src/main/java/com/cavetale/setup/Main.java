@@ -1,8 +1,10 @@
 package com.cavetale.setup;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -15,6 +17,7 @@ public final class Main {
     private Set<Category> specifiedCategories = EnumSet.noneOf(Category.class);
     private List<Command> commands = new ArrayList<>();
     private boolean verbose = false;
+    private String jarLocation;
 
     public static void main(String[] args) throws Exception {
         try {
@@ -34,7 +37,9 @@ public final class Main {
         }
         Flag previousFlag = null;
         for (String arg : args) {
-            if (arg.startsWith("--")) {
+            if (arg.equals("--")) {
+                previousFlag = null;
+            } else if (arg.startsWith("--")) {
                 previousFlag = Flag.of(arg.substring(2));
                 if (previousFlag == null) {
                     throw new AppException("Unknown flag: " + arg);
@@ -85,6 +90,13 @@ public final class Main {
                         specifiedPlugins.add(plugin);
                         break;
                     }
+                    case JAR: {
+                        if (jarLocation != null) {
+                            throw new AppException("Duplicate jar location: " + jarLocation + ", " + arg);
+                        }
+                        jarLocation = arg;
+                        break;
+                    }
                     default:
                         throw new AppException("Invalid argument for "
                                                + previousFlag.longForm + ": " + arg);
@@ -103,8 +115,10 @@ public final class Main {
         }
         int result = 0;
         for (Command command : commands) {
-            result = Math.max(result, runCommand(command));
+            result = runCommand(command);
+            if (result != 0) break;
         }
+        System.exit(result);
     }
 
     private int runCommand(Command command) throws AppException {
@@ -112,6 +126,8 @@ public final class Main {
         case PRINT: return print();
         case CHECK: return check();
         case DOWNLOAD: return download();
+        case LINK: return link();
+        case UNLINK: return unlink();
         default: throw new IllegalStateException("Not implemented: " + command);
         }
     }
@@ -130,7 +146,7 @@ public final class Main {
     }
 
     private void help(PrintStream out) {
-        out.println("USAGE: java -jar Setup.jar COMMAND FLAGS");
+        out.println("USAGE: java -jar Setup.jar COMMANDS FLAGS");
         out.println("COMMANDS");
         for (Command command : Command.values()) {
             out.println("\t" + command.name().toLowerCase()
@@ -241,5 +257,41 @@ public final class Main {
             System.err.println(failureCount + " Errors!");
             return 1;
         }
+    }
+
+    private int link() throws AppException {
+        if (jarLocation == null) {
+            throw new AppException("Jar location not specified!");
+        }
+        Set<Plugin> requiredPlugins = buildPluginSet();
+        Set<Plugin> alreadyInstalled = EnumSet.noneOf(Plugin.class);
+        Set<Plugin> failures = EnumSet.noneOf(Plugin.class);
+        for (Plugin plugin : requiredPlugins) {
+            File localFile = new File(new File("plugins"), plugin.name + ".jar");
+            if (localFile.exists()) {
+                alreadyInstalled.add(plugin);
+                continue;
+            }
+            File globalFile = new File(new File(jarLocation), plugin.name + ".jar");
+            try {
+                Files.createSymbolicLink(localFile.toPath(), globalFile.toPath());
+            } catch (IOException ioe) {
+                System.err.println("Failed creating symlink: " + localFile + " -> " + globalFile);
+                if (verbose) ioe.printStackTrace();
+                return 1;
+            }
+            if (verbose) {
+                System.out.println(localFile + " -> " + globalFile);
+            }
+        }
+        if (verbose && !alreadyInstalled.isEmpty()) {
+            System.out.println(alreadyInstalled.size() + " already installed: "
+                               + Plugin.toString(alreadyInstalled));
+        }
+        return 0;
+    }
+
+    private int unlink() throws AppException {
+        throw new AppException("Unlink not implemented!");
     }
 }

@@ -1,10 +1,11 @@
 package com.cavetale.setup;
 
 public enum Flag {
-    SERVER("Specify servers"),
     CATEGORY("Specify categories"),
-    PLUGIN("Specify plugins"),
     HELP("Print help"),
+    JAR("Specify jar location"),
+    PLUGIN("Specify plugins"),
+    SERVER("Specify servers"),
     VERBOSE("Verbose output");
 
     public final char shortForm;
