@@ -13,8 +13,8 @@ import lombok.Getter;
  */
 @Getter
 public enum Plugin implements PluginSet {
-    AFK("AFK", "com.cavetale.afk", "afk", "0.1-SNAPSHOT", Category.ALL),
     ADVICE_ANIMALS("AdviceAnimals", "com.winthier.adviceanimals", "adviceanimals", "0.1-SNAPSHOT", Category.SURVIVAL),
+    AFK("AFK", "com.cavetale.afk", "afk", "0.1-SNAPSHOT", Category.ALL),
     AREA("Area", "com.cavetale.area", "area", "0.1-SNAPSHOT", Category.SURVIVAL),
     ARMOR_STAND_EDITOR("ArmorStandEditor", "io.github.rypofalem.armorstandeditor", "armorstandeditor", "1.17-25", Category.ALL),
     BANS("Bans", "com.winthier.bans", "bans", "0.1-SNAPSHOT", Category.ALL),
@@ -22,6 +22,8 @@ public enum Plugin implements PluginSet {
     BINGO("Bingo", "com.cavetale.bingo", "bingo", "0.1-SNAPSHOT", Category.MINIGAME),
     BLOCK_CLIP("BlockClip", "com.cavetale.blockclip", "blockclip", "0.1-SNAPSHOT", Category.ALL),
     BLOCK_TRIGGER("BlockTrigger", "com.cavetale.blocktrigger", "blocktrigger", "0.1-SNAPSHOT", Category.SURVIVAL),
+    BLUE_MAP("BlueMap", url("https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v1.7.2/BlueMap-1.7.2-spigot.jar"), Category.UTIL),
+    BUYCRAFT_X("BuycraftX", url("https://d2vpaemuugs53a.cloudfront.net/latest/minecraft-java/12.0.8/bukkit-1.13/BuycraftX.jar"), Category.UTIL),
     CAVES("Caves", "com.cavetale.caves", "caves", "0.1-SNAPSHOT", Category.WORLDGEN),
     CHAIR("Chair", "com.cavetale.chair", "chair", "0.1-SNAPSHOT", Category.SURVIVAL),
     CHAT("Chat", "com.winthier.chat", "chat", "0.1-SNAPSHOT", Category.CORE),
@@ -38,6 +40,8 @@ public enum Plugin implements PluginSet {
     DUNGEONS("Dungeons", "com.cavetale.dungeons", "dungeons", "0.1-SNAPSHOT", Category.WORLDGEN),
     DUSK("Dusk", "com.winthier.dusk", "dusk", "0.1", Category.SURVIVAL),
     DUTIES("Duties", "me.th3pf.plugins", "duties", "0.1-SNAPSHOT", Category.SURVIVAL),
+    DYNMAP("dynmap", "target/Dynmap-3.3-SNAPSHOT-spigot", Category.SURVIVAL),
+    DYNMAP_HIDER("DynmapHider", (URL) null, Category.SURVIVAL),
     EASTER("Easter", "com.cavetale.easter", "easter", "0.1-SNAPSHOT", Category.SEASONAL),
     ELECTION("Election", "com.cavetale.election", "election", "0.1-SNAPSHOT", Category.SURVIVAL),
     ENDERBALL("Enderball", "com.cavetale.enderball", "enderball", "0.1-SNAPSHOT", Category.MINIGAME),
@@ -79,10 +83,11 @@ public enum Plugin implements PluginSet {
     MINIVERSE("Miniverse", "com.cavetale.miniverse", "miniverse", "0.1-SNAPSHOT", Category.UTIL),
     MONEY("Money", "com.cavetale.money", "money", "0.1-SNAPSHOT", Category.CORE),
     MYTEMS("Mytems", "com.cavetale.mytems", "mytems", "0.1-SNAPSHOT", Category.CORE),
+    NEO_PAINTING_SWITCH("neoPaintingSwitch", (URL) null, Category.UTIL),
     NO_CHEAT_PLUS("NoCheatPlus", "fr.neatmonster", "nocheatplus-parent", "1.1-SNAPSHOT", Category.DEPRECATED),
+    NU_VOTIFIER("NuVotifier", (URL) null, Category.UTIL),
     OPEN_INV("OpenInv", "com.lishid", "openinvassembly", "4.1.6-SNAPSHOT", Category.SURVIVAL),
     OVERBOARD("Overboard", "com.cavetale.overboard", "overboard", "0.1-SNAPSHOT", Category.MINIGAME),
-    PVPARENA("PVPArena", "com.cavetale.pvparena", "pvparena", "0.1-SNAPSHOT", Category.MINIGAME),
     PERM("Perm", "com.winthier.perm", "perm", "0.1-SNAPSHOT", Category.CORE),
     PHOTOS("Photos", "com.winthier.photos", "photos", "0.1-SNAPSHOT", Category.SURVIVAL),
     PICTIONARY("Pictionary", "com.cavetale.pictionary", "pictionary", "0.1-SNAPSHOT", Category.CREATIVE),
@@ -95,17 +100,17 @@ public enum Plugin implements PluginSet {
     POSTER("Poster", "com.cavetale.poster", "poster", "0.1-SNAPSHOT", Category.SURVIVAL),
     PROTECT("Protect", "com.winthier.protect", "protect", "0.1-SNAPSHOT", Category.SURVIVAL),
     PROTOCOL_LIB("ProtocolLib", "com.comphenix.protocol", "ProtocolLib", "4.7.1-SNAPSHOT", Category.CORE),
+    PVPARENA("PVPArena", "com.cavetale.pvparena", "pvparena", "0.1-SNAPSHOT", Category.MINIGAME),
     QUIZ("Quiz", "com.winthier.quiz", "quiz", "0.1-SNAPSHOT", Category.DEPRECATED),
     RACE("Race", "com.cavetale.race", "race", "0.1-SNAPSHOT", Category.MINIGAME),
     RAID("Raid", "com.cavetale.raid", "raid", "0.1-SNAPSHOT", Category.MINIGAME),
     RANDOM_PLAYER_HEAD("RandomPlayerHead", "com.winthier.rph", "random-player-head", "0.1-SNAPSHOT", Category.SURVIVAL),
-    RED_GREEN_LIGHT("RedGreenLight", "com.cavetale.redgreenlight", "redgreenlight", "0.1-SNAPSHOT", Category.EVENT),
     REDSTONE_CLOCK_DETECTOR("RedstoneClockDetector", "me.hwei", "redstoneclockdetector", "0.2.8", Category.SURVIVAL),
+    RED_GREEN_LIGHT("RedGreenLight", "com.cavetale.redgreenlight", "redgreenlight", "0.1-SNAPSHOT", Category.EVENT),
     RESIDENT("Resident", "com.cavetale.resident", "resident", "0.1-SNAPSHOT", Category.SURVIVAL),
     RESOURCE("Resource", "com.winthier.resource", "resource", "0.1", Category.SURVIVAL),
     RESOURCE_PACK("ResourcePack", "com.cavetale.resourcepack", "resourcepack", "0.1-SNAPSHOT", Category.ALL),
     RULES("Rules", "com.winthier.rules", "rules", "0.1-SNAPSHOT", Category.ALL),
-    SQL("SQL", "com.winthier.sql", "sql", "0.1-SNAPSHOT", Category.CORE),
     SERVER("Server", "com.cavetale.server", "server", "0.1-SNAPSHOT", Category.ALL),
     SERVER_STATUS("ServerStatus", "com.cavetale.serverstatus", "serverstatus", "0.1-SNAPSHOT", Category.HUB),
     SHOP("Shop", "com.winthier.shop", "shop", "0.1-SNAPSHOT", Category.SURVIVAL),
@@ -116,59 +121,66 @@ public enum Plugin implements PluginSet {
     SPAWN("Spawn", "com.winthier.spawn", "spawn", "0.1-SNAPSHOT", Category.SURVIVAL),
     SPIKE("Spike", "com.cavetale.spike", "spike", "0.1-SNAPSHOT", Category.ALL),
     SPLEEF("Spleef", "com.winthier.spleef", "spleef", "0.1-SNAPSHOT", Category.MINIGAME),
+    SQL("SQL", "com.winthier.sql", "sql", "0.1-SNAPSHOT", Category.CORE),
     STAR_BOOK("StarBook", "com.winthier.starbook", "starbook", "0.1-SNAPSHOT", Category.ALL),
     STOP_RAIN("StopRain", "com.winthier.stoprain", "stoprain", "0.1-SNAPSHOT", Category.ALL),
     STREAMER("Streamer", "com.cavetale.streamer", "streamer", "0.1-SNAPSHOT", Category.ALL),
     SURVIVAL_GAMES("SurvivalGames", "com.cavetale.survivalgames", "survivalgames", "0.1-SNAPSHOT", Category.MINIGAME),
-    TPA("TPA", "com.cavetale.tpa", "tpa", "0.1-SNAPSHOT", Category.SURVIVAL),
     TELEVATOR("Televator", "com.cavetale.televator", "televator", "0.1-SNAPSHOT", Category.ALL),
     TICKET("Ticket", "com.winthier.ticket", "ticket", "0.1-SNAPSHOT", Category.ALL),
     TINFOIL("Tinfoil", "com.winthier.tinfoil", "tinfoil", "0.1", Category.ALL),
     TITLE("Title", "com.winthier.title", "title", "0.1-SNAPSHOT", Category.CORE),
     TOO_MANY_ENTITIES("TooManyEntities", "com.winthier.toomanyentities", "toomanyentities", "0.1", Category.SURVIVAL),
+    TPA("TPA", "com.cavetale.tpa", "tpa", "0.1-SNAPSHOT", Category.SURVIVAL),
     TUTOR("Tutor", "com.cavetale.tutor", "tutor", "0.1-SNAPSHOT", Category.ALL),
     VAULT("Vault", "net.milkbowl.vault", "Vault", "1.7", Category.CORE),
     VERTIGO("Vertigo", "io.github.feydk.vertigo", "vertigo", "0.1-SNAPSHOT", Category.MINIGAME),
     VOID_GENERATOR("VoidGenerator", "com.cavetale.voidgenerator", "voidgenerator", "0.1-SNAPSHOT", Category.CORE),
     VOTE("Vote", "com.cavetale.vote", "vote", "0.1-SNAPSHOT", Category.SURVIVAL),
+    VULCAN("Vulcan", (URL) null, Category.SURVIVAL),
     WALL("Wall", "com.winthier.wall", "wall", "0.1-SNAPSHOT", Category.ALL),
     WARDROBE("Wardrobe", "com.cavetale.wardrobe", "wardrobe", "0.1-SNAPSHOT", Category.ALL),
     WARP("Warp", "com.cavetale.warp", "warp", "0.1-SNAPSHOT", Category.SURVIVAL),
     WATCHDOG("Watchdog", "com.winthier.watchdog", "watchdog", "0.1-SNAPSHOT", Category.ALL),
     WATCHMAN("Watchman", "com.cavetale.watchman", "watchman", "0.1-SNAPSHOT", Category.SURVIVAL),
     WIN_TAG("WinTag", "com.cavetale.wintag", "wintag", "0.1-SNAPSHOT", Category.SURVIVAL),
+    WORLDS("Worlds", "com.winthier.worlds", "worlds", "0.1-SNAPSHOT", Category.SURVIVAL),
     WORLD_EDIT("WorldEdit", "worldedit-bukkit/build/libs/worldedit-bukkit-7.3.0-SNAPSHOT-dist", Category.ALL),
     WORLD_GUARD("WorldGuard", "worldguard-bukkit/build/libs/worldguard-bukkit-7.0.6-SNAPSHOT-dist", Category.ALL),
     WORLD_MARKER("WorldMarker", "com.cavetale.worldmarker", "worldmarker", "0.1-SNAPSHOT", Category.CORE),
-    WORLDS("Worlds", "com.winthier.worlds", "worlds", "0.1-SNAPSHOT", Category.SURVIVAL),
-    XMAS("Xmas", "com.cavetale.xmas", "xmas", "0.1-SNAPSHOT", Category.SEASONAL),
-    DYNMAP("dynmap", "target/Dynmap-3.3-SNAPSHOT-spigot", Category.SURVIVAL);
+    XMAS("Xmas", "com.cavetale.xmas", "xmas", "0.1-SNAPSHOT", Category.SEASONAL);
 
     public final String name;
     public final URL downloadUrl;
     public final Category category;
 
-    Plugin(final String name, final String groupId, final String artifactId, final String version, final Category category) {
-        this.name = name;
+    private static URL url(String path) {
         try {
-            this.downloadUrl = new URL("https://cavetale.com/jenkins/job/" + name
-                                       + "/lastSuccessfulBuild/" + groupId + "$" + artifactId
-                                       + "/artifact/" + groupId + "/" + artifactId + "/" + version
-                                       + "/" + artifactId + "-" + version + ".jar");
+            return new URL(path);
         } catch (MalformedURLException murle) {
             throw new IllegalStateException(murle);
         }
+    }
+
+    Plugin(final String name, final URL url, final Category category) {
+        this.name = name;
+        this.downloadUrl = url;
+        this.category = category;
+    }
+
+    Plugin(final String name, final String groupId, final String artifactId, final String version, final Category category) {
+        this.name = name;
+        this.downloadUrl = url("https://cavetale.com/jenkins/job/" + name
+                               + "/lastSuccessfulBuild/" + groupId + "$" + artifactId
+                               + "/artifact/" + groupId + "/" + artifactId + "/" + version
+                               + "/" + artifactId + "-" + version + ".jar");
         this.category = category;
     }
 
     Plugin(final String name, final String artifactPath, final Category category) {
         this.name = name;
-        try {
-            this.downloadUrl = new URL("https://cavetale.com/jenkins/job/" + name
-                                       + "/lastSuccessfulBuild/artifact/" + artifactPath + ".jar");
-        } catch (MalformedURLException murle) {
-            throw new IllegalStateException(murle);
-        }
+        this.downloadUrl = url("https://cavetale.com/jenkins/job/" + name
+                               + "/lastSuccessfulBuild/artifact/" + artifactPath + ".jar");
         this.category = category;
     }
 

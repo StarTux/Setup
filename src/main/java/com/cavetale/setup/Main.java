@@ -210,6 +210,11 @@ public final class Main {
                 alreadyInstalled.add(plugin);
                 continue;
             }
+            if (plugin.downloadUrl == null) {
+                failureCount += 1;
+                System.err.println("Missing download URL: " + plugin.name);
+                continue;
+            }
             try {
                 Download.to(plugin.downloadUrl, dest);
             } catch (UncheckedIOException ioe) {
