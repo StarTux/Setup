@@ -1,10 +1,8 @@
 package com.cavetale.setup;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -213,13 +211,7 @@ public final class Main {
                 continue;
             }
             try {
-                URL url;
-                try {
-                    url = new URL(plugin.getDownloadUrl());
-                } catch (IOException ioe) {
-                    throw new UncheckedIOException(ioe);
-                }
-                Download.to(url, dest);
+                Download.to(plugin.downloadUrl, dest);
             } catch (UncheckedIOException ioe) {
                 failureCount += 1;
                 System.err.println("Failed to download: " + plugin.name);

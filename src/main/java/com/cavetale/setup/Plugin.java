@@ -1,15 +1,17 @@
 package com.cavetale.setup;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
 
 /**
  * Enums generated via script.
  */
-@RequiredArgsConstructor
+@Getter
 public enum Plugin implements PluginSet {
     AFK("AFK", "com.cavetale.afk", "afk", "0.1-SNAPSHOT", Category.ALL),
     ADVICE_ANIMALS("AdviceAnimals", "com.winthier.adviceanimals", "adviceanimals", "0.1-SNAPSHOT", Category.SURVIVAL),
@@ -135,27 +137,39 @@ public enum Plugin implements PluginSet {
     WATCHDOG("Watchdog", "com.winthier.watchdog", "watchdog", "0.1-SNAPSHOT", Category.ALL),
     WATCHMAN("Watchman", "com.cavetale.watchman", "watchman", "0.1-SNAPSHOT", Category.SURVIVAL),
     WIN_TAG("WinTag", "com.cavetale.wintag", "wintag", "0.1-SNAPSHOT", Category.SURVIVAL),
-    WORLD_EDIT("WorldEdit", "", "", "worldedit-bukkit/build/libs/worldedit-bukkit-7.3.0-SNAPSHOT-dist", Category.ALL),
-    WORLD_GUARD("WorldGuard", "", "", "worldguard-bukkit/build/libs/worldguard-bukkit-7.0.6-SNAPSHOT-dist", Category.ALL),
+    WORLD_EDIT("WorldEdit", "worldedit-bukkit/build/libs/worldedit-bukkit-7.3.0-SNAPSHOT-dist", Category.ALL),
+    WORLD_GUARD("WorldGuard", "worldguard-bukkit/build/libs/worldguard-bukkit-7.0.6-SNAPSHOT-dist", Category.ALL),
     WORLD_MARKER("WorldMarker", "com.cavetale.worldmarker", "worldmarker", "0.1-SNAPSHOT", Category.CORE),
     WORLDS("Worlds", "com.winthier.worlds", "worlds", "0.1-SNAPSHOT", Category.SURVIVAL),
     XMAS("Xmas", "com.cavetale.xmas", "xmas", "0.1-SNAPSHOT", Category.SEASONAL),
-    DYNMAP("dynmap", "", "", "target/Dynmap-3.3-SNAPSHOT-spigot", Category.SURVIVAL);
+    DYNMAP("dynmap", "target/Dynmap-3.3-SNAPSHOT-spigot", Category.SURVIVAL);
 
     public final String name;
-    public final String groupId;
-    public final String artifactId;
-    public final String version;
+    public final URL downloadUrl;
     public final Category category;
 
-    public String getDownloadUrl() {
-        return groupId.isEmpty()
-            ? ("https://cavetale.com/jenkins/job/" + name
-               + "/lastSuccessfulBuild/artifact/" + version + ".jar")
-            : ("https://cavetale.com/jenkins/job/" + name
-               + "/lastSuccessfulBuild/" + groupId + "$" + artifactId
-               + "/artifact/" + groupId + "/" + artifactId + "/" + version
-               + "/" + artifactId + "-" + version + ".jar");
+    Plugin(final String name, final String groupId, final String artifactId, final String version, final Category category) {
+        this.name = name;
+        try {
+            this.downloadUrl = new URL("https://cavetale.com/jenkins/job/" + name
+                                       + "/lastSuccessfulBuild/" + groupId + "$" + artifactId
+                                       + "/artifact/" + groupId + "/" + artifactId + "/" + version
+                                       + "/" + artifactId + "-" + version + ".jar");
+        } catch (MalformedURLException murle) {
+            throw new IllegalStateException(murle);
+        }
+        this.category = category;
+    }
+
+    Plugin(final String name, final String artifactPath, final Category category) {
+        this.name = name;
+        try {
+            this.downloadUrl = new URL("https://cavetale.com/jenkins/job/" + name
+                                       + "/lastSuccessfulBuild/artifact/" + artifactPath + ".jar");
+        } catch (MalformedURLException murle) {
+            throw new IllegalStateException(murle);
+        }
+        this.category = category;
     }
 
     @Override
