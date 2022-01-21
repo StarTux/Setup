@@ -13,7 +13,7 @@ public final class Main {
     private Set<Plugin> specifiedPlugins = EnumSet.noneOf(Plugin.class);
     private Set<Server> specifiedServers = EnumSet.noneOf(Server.class);
     private Set<Category> specifiedCategories = EnumSet.noneOf(Category.class);
-    private List<String> orphanedArguments = new ArrayList<>();
+    private List<Command> commands = new ArrayList<>();
     private boolean verbose = false;
 
     public static void main(String[] args) throws Exception {
@@ -51,7 +51,14 @@ public final class Main {
                 }
             } else {
                 if (previousFlag == null) {
-                    orphanedArguments.add(arg);
+                    Command command = Command.of(arg);
+                    if (command == null) {
+                        throw new AppException("Unknown command: " + arg);
+                    }
+                    if (commands.contains(command)) {
+                        throw new AppException("Duplicate command: " + arg);
+                    }
+                    commands.add(command);
                 } else {
                     switch (previousFlag) {
                     case SERVER: {
@@ -85,21 +92,27 @@ public final class Main {
                 }
             }
         }
-        if (orphanedArguments.isEmpty()) {
+        if (commands.isEmpty()) {
             throw new AppException("Command expected! See --help");
         }
         if (verbose) {
+            System.out.println("Commands: " + commands);
             System.out.println("Specified Plugins " + specifiedPlugins);
             System.out.println("Specified Categories " + specifiedCategories);
             System.out.println("Specified Servers " + specifiedServers);
         }
-        String cmd = orphanedArguments.get(0);
-        List<String> args2 = List.copyOf(orphanedArguments.subList(1, orphanedArguments.size()));
-        switch (cmd) {
-        case "print": print(args2); break;
-        case "check": check(args2); break;
-        case "download": download(args2); break;
-        default: throw new AppException("Unknown command: " + cmd);
+        int result = 0;
+        for (Command command : commands) {
+            result = Math.max(result, runCommand(command));
+        }
+    }
+
+    private int runCommand(Command command) throws AppException {
+        switch (command) {
+        case PRINT: return print();
+        case CHECK: return check();
+        case DOWNLOAD: return download();
+        default: throw new IllegalStateException("Not implemented: " + command);
         }
     }
 
@@ -119,9 +132,10 @@ public final class Main {
     private void help(PrintStream out) {
         out.println("USAGE: java -jar Setup.jar COMMAND FLAGS");
         out.println("COMMANDS");
-        out.println("\tprint - Print all required plugins");
-        out.println("\tcheck - Check if plugins match");
-        out.println("\tdownload - Download all plugins");
+        for (Command command : Command.values()) {
+            out.println("\t" + command.name().toLowerCase()
+                        + " - " + command.description);
+        }
         out.println("FLAGS");
         for (Flag flag : Flag.values()) {
             out.println("\t--" + flag.longForm + ", -" + flag.shortForm
@@ -137,19 +151,14 @@ public final class Main {
         return result;
     }
 
-    private void print(List<String> args) throws AppException {
-        if (!args.isEmpty()) {
-            throw new AppException("Unexpected arguments: " + args);
-        }
+    private int print() throws AppException {
         Set<Plugin> requiredPlugins = buildPluginSet();
         System.out.println("Total " + requiredPlugins.size()
                            + ": " + Plugin.toString(requiredPlugins));
+        return 0;
     }
 
-    private void check(List<String> args) throws AppException {
-        if (!args.isEmpty()) {
-            throw new AppException("Unexpected arguments: " + args);
-        }
+    private int check() throws AppException {
         Set<Plugin> requiredPlugins = buildPluginSet();
         Set<String> unknownPlugins = new HashSet<>();
         Set<Plugin> presentPlugins = EnumSet.allOf(Plugin.class);
@@ -175,8 +184,7 @@ public final class Main {
                 System.out.println("All plugins are in place: "
                                    + Plugin.toString(requiredPlugins));
             }
-            System.exit(0);
-            return;
+            return 0;
         }
         if (!missingPlugins.isEmpty()) {
             System.out.println(missingPlugins.size() + " missing: "
@@ -190,13 +198,10 @@ public final class Main {
             System.out.println(unknownPlugins.size() + " unknown: "
                                + String.join(" ", unknownPlugins));
         }
-        System.exit(1);
+        return 1;
     }
 
-    private void download(List<String> args) throws AppException {
-        if (!args.isEmpty()) {
-            throw new AppException("Unexpected arguments: " + args);
-        }
+    private int download() throws AppException {
         Set<Plugin> requiredPlugins = buildPluginSet();
         if (verbose) {
             System.out.println("Downloading " + requiredPlugins.size()
@@ -231,11 +236,10 @@ public final class Main {
             if (verbose) {
                 System.out.println("No errors!");
             }
-            System.exit(0);
-            return;
+            return 0;
         } else {
             System.err.println(failureCount + " Errors!");
-            System.exit(1);
+            return 1;
         }
     }
 }
