@@ -177,7 +177,7 @@ public final class Main {
     private int check() throws AppException {
         Set<Plugin> requiredPlugins = buildPluginSet();
         Set<String> unknownPlugins = new HashSet<>();
-        Set<Plugin> presentPlugins = EnumSet.allOf(Plugin.class);
+        Set<Plugin> presentPlugins = EnumSet.noneOf(Plugin.class);
         Set<Plugin> superfluousPlugins = EnumSet.noneOf(Plugin.class);
         for (File file : new File("plugins").listFiles()) {
             String name = file.getName();
