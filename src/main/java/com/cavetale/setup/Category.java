@@ -6,8 +6,10 @@ import java.util.Set;
 public enum Category implements PluginSet {
     CORE, // Required for proper function
     ALL, // Installed everywhere
+    MAIN, // Min survival server
     SURVIVAL, // All survival servers
     CREATIVE,
+    BUILD, // All build servers
     HUB,
     MINIGAME, // Custom server
     EVENT, // Event without its own server

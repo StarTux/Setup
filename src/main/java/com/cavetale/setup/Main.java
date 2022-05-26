@@ -179,7 +179,9 @@ public final class Main {
         Set<String> unknownPlugins = new HashSet<>();
         Set<Plugin> presentPlugins = EnumSet.noneOf(Plugin.class);
         Set<Plugin> superfluousPlugins = EnumSet.noneOf(Plugin.class);
-        for (File file : new File("plugins").listFiles()) {
+        File pluginsFolder = new File("plugins");
+        if (!pluginsFolder.exists()) throw new AppException("File not found: " + pluginsFolder);
+        for (File file : pluginsFolder.listFiles()) {
             String name = file.getName();
             if (!name.endsWith(".jar")) continue;
             name = name.substring(0, name.length() - 4);

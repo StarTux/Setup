@@ -3,14 +3,13 @@ package com.cavetale.setup;
 import java.util.EnumSet;
 import java.util.Set;
 import lombok.Getter;
-import static com.cavetale.setup.Category.*;
 
 @Getter
 public enum Server implements PluginSet {
-    ANY("Base", CORE, ALL),
-    CAVETALE("Cavetale", CORE, ALL, Category.SURVIVAL),
-    CREATIVE("Creative", CORE, ALL, Category.CREATIVE),
-    HUB("Hub", CORE, ALL, Category.HUB);
+    ANY("Base", Category.CORE, Category.ALL),
+    CAVETALE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.MAIN),
+    CREATIVE("Creative", Category.CORE, Category.ALL, Category.CREATIVE, Category.BUILD, Plugin.RAID, Plugin.ENEMY, Plugin.LINK_PORTAL),
+    HUB("Hub", Category.CORE, Category.ALL, Category.HUB);
 
     public final String name;
     public final Set<Plugin> plugins;
