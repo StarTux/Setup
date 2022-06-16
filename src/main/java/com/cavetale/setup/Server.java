@@ -8,6 +8,7 @@ import lombok.Getter;
 public enum Server implements PluginSet {
     ANY("Base", Category.CORE, Category.ALL),
     CAVETALE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.MAIN),
+    MINE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.MAIN, Plugin.DUNGEONS),
     CREATIVE("Creative", Category.CORE, Category.ALL, Category.CREATIVE, Category.BUILD, Plugin.RAID, Plugin.ENEMY, Plugin.LINK_PORTAL),
     HUB("Hub", Category.CORE, Category.ALL, Category.HUB);
 
