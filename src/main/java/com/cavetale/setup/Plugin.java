@@ -139,7 +139,7 @@ public enum Plugin implements PluginSet {
     VAULT("Vault", "net.milkbowl.vault", "Vault", "1.7", Category.CORE),
     VERTIGO("Vertigo", "io.github.feydk.vertigo", "vertigo", "0.1-SNAPSHOT", Category.MINIGAME),
     VOID_GENERATOR("VoidGenerator", "com.cavetale.voidgenerator", "voidgenerator", "0.1-SNAPSHOT", Category.CORE),
-    VOTE("Vote", "com.cavetale.vote", "vote", "0.1-SNAPSHOT", Category.SURVIVAL),
+    VOTE("Vote", "com.cavetale.vote", "vote", "0.1-SNAPSHOT", Category.ALL),
     VULCAN("Vulcan", (URL) null, Category.SURVIVAL),
     WALL("Wall", "com.winthier.wall", "wall", "0.1-SNAPSHOT", Category.ALL),
     WARDROBE("Wardrobe", "com.cavetale.wardrobe", "wardrobe", "0.1-SNAPSHOT", Category.ALL),
