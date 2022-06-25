@@ -226,9 +226,11 @@ public final class Main {
                                + ": " + Plugin.toString(requiredPlugins));
         }
         Set<Plugin> alreadyInstalled = EnumSet.noneOf(Plugin.class);
+        File pluginsFolder = new File("plugins");
+        pluginsFolder.mkdirs();
         int failureCount = 0;
         for (Plugin plugin : requiredPlugins) {
-            File dest = new File(new File("plugins"), plugin.name + ".jar");
+            File dest = new File(pluginsFolder, plugin.name + ".jar");
             if (dest.exists()) {
                 alreadyInstalled.add(plugin);
                 continue;
