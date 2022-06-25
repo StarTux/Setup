@@ -76,7 +76,7 @@ public enum Plugin implements PluginSet {
     MAIL("Mail", "com.winthier.mail", "mail", "0.1-SNAPSHOT", Category.ALL),
     MANUAL("Manual", "com.winthier.manual", "manual", "0.1-SNAPSHOT", Category.DEPRECATED),
     MAP_LOAD("MapLoad", "com.cavetale.mapload", "mapload", "0.1-SNAPSHOT", Category.UTIL),
-    MASS_STORAGE("MassStorage", "com.winthier.massstorage", "massstorage", "0.1-SNAPSHOT", Category.SURVIVAL),
+    MASS_STORAGE("MassStorage", "com.cavetale.massstorage", "massstorage", "0.1-SNAPSHOT", Category.SURVIVAL),
     MAYPOLE("Maypole", "com.winthier.maypole", "maypole", "0.1", Category.SEASONAL),
     MEMBER_LIST("MemberList", "com.cavetale.memberlist", "memberlist", "0.1-SNAPSHOT", Category.ALL),
     MENU("Menu", "com.cavetale.menu", "menu", "0.1-SNAPSHOT", Category.ALL),
