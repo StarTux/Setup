@@ -127,6 +127,7 @@ public enum Plugin implements PluginSet {
     STAR_BOOK("StarBook", "com.winthier.starbook", "starbook", "0.1-SNAPSHOT", Category.ALL),
     STOP_RAIN("StopRain", "com.winthier.stoprain", "stoprain", "0.1-SNAPSHOT", Category.ALL),
     STREAMER("Streamer", "com.cavetale.streamer", "streamer", "0.1-SNAPSHOT", Category.ALL),
+    STRUCTURE("Structure", "com.cavetale.structure", "structure", "0.1-SNAPSHOT", Category.MAIN),
     SURVIVAL_GAMES("SurvivalGames", "com.cavetale.survivalgames", "survivalgames", "0.1-SNAPSHOT", Category.MINIGAME),
     TELEVATOR("Televator", "com.cavetale.televator", "televator", "0.1-SNAPSHOT", Category.ALL),
     TICKET("Ticket", "com.winthier.ticket", "ticket", "0.1-SNAPSHOT", Category.ALL),
