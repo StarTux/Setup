@@ -13,7 +13,7 @@ import lombok.Getter;
  */
 @Getter
 public enum Plugin implements PluginSet {
-    ADVICE_ANIMALS("AdviceAnimals", "com.winthier.adviceanimals", "adviceanimals", "0.1-SNAPSHOT", Category.SURVIVAL),
+    ADVICE_ANIMALS("AdviceAnimals", "com.winthier.adviceanimals", "adviceanimals", "0.1-SNAPSHOT", Category.DEPRECATED),
     AFK("AFK", "com.cavetale.afk", "afk", "0.1-SNAPSHOT", Category.ALL),
     AREA("Area", "com.cavetale.area", "area", "0.1-SNAPSHOT", Category.ALL),
     ARMOR_STAND_EDITOR("ArmorStandEditor", "io.github.rypofalem.armorstandeditor", "armorstandeditor", "1.17-25", Category.ALL),
@@ -23,7 +23,7 @@ public enum Plugin implements PluginSet {
     BINGO("Bingo", "com.cavetale.bingo", "bingo", "0.1-SNAPSHOT", Category.MINIGAME),
     BLOCK_CLIP("BlockClip", "com.cavetale.blockclip", "blockclip", "0.1-SNAPSHOT", Category.ALL),
     BLOCK_TRIGGER("BlockTrigger", "com.cavetale.blocktrigger", "blocktrigger", "0.1-SNAPSHOT", Category.SURVIVAL),
-    BLUE_MAP("BlueMap", url("https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v1.7.2/BlueMap-1.7.2-spigot.jar"), Category.MAIN),
+    BLUE_MAP("BlueMap", url("https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v1.7.2/BlueMap-1.7.2-spigot.jar"), Category.DEPRECATED),
     BUYCRAFT_X("BuycraftX", url("https://d2vpaemuugs53a.cloudfront.net/latest/minecraft-java/12.0.8/bukkit-1.13/BuycraftX.jar"), Category.MAIN),
     CAVES("Caves", "com.cavetale.caves", "caves", "0.1-SNAPSHOT", Category.WORLDGEN),
     CHAIR("Chair", "com.cavetale.chair", "chair", "0.1-SNAPSHOT", Category.BUILD),
@@ -37,7 +37,7 @@ public enum Plugin implements PluginSet {
     CREATIVE("Creative", "com.winthier.creative", "creative", "0.1-SNAPSHOT", Category.CREATIVE),
     CULL_MOB("CullMob", "com.cavetale.cullmob", "cullmob", "0.1-SNAPSHOT", Category.SURVIVAL),
     DECORATOR("Decorator", "com.winthier.decorator", "decorator", "0.1-SNAPSHOT", Category.WORLDGEN),
-    DIRTY("Dirty", "com.cavetale.dirty", "dirty", "0.1-SNAPSHOT", Category.CORE),
+    DIRTY("Dirty", "com.cavetale.dirty", "dirty", "0.1-SNAPSHOT", Category.DEPRECATED),
     DUNGEONS("Dungeons", "com.cavetale.dungeons", "dungeons", "0.1-SNAPSHOT", Category.UTIL),
     DUSK("Dusk", "com.winthier.dusk", "dusk", "0.1", Category.SURVIVAL),
     DUTIES("Duties", "me.th3pf.plugins", "duties", "0.1-SNAPSHOT", Category.DEPRECATED),
