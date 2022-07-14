@@ -35,7 +35,7 @@ public enum Plugin implements PluginSet {
     COUNTDOWN("Countdown", "com.winthier.countdown", "countdown", "0.1", Category.ALL),
     CRAFT_BAY("CraftBay", "com.winthier.craftbay", "craftbay", "2.26-SNAPSHOT", Category.DEPRECATED),
     CREATIVE("Creative", "com.winthier.creative", "creative", "0.1-SNAPSHOT", Category.CREATIVE),
-    CULL_MOB("CullMob", "com.cavetale.cullmob", "cullmob", "0.1-SNAPSHOT", Category.SURVIVAL),
+    CULL_MOB("CullMob", "com.cavetale.cullmob", "cullmob", "0.1-SNAPSHOT", Category.HOME),
     DECORATOR("Decorator", "com.winthier.decorator", "decorator", "0.1-SNAPSHOT", Category.WORLDGEN),
     DIRTY("Dirty", "com.cavetale.dirty", "dirty", "0.1-SNAPSHOT", Category.DEPRECATED),
     DUNGEONS("Dungeons", "com.cavetale.dungeons", "dungeons", "0.1-SNAPSHOT", Category.MINE),
