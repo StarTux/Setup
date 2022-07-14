@@ -11,6 +11,7 @@ public enum Category implements PluginSet {
     BUILD, // All build servers
     HOME, // Home servers
     HUB,
+    MINE,
     MINIGAME, // Custom server
     EVENT, // Event without its own server
     UTIL, // Optional

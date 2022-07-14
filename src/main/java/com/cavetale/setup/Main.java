@@ -17,7 +17,7 @@ public final class Main {
     private Set<Category> specifiedCategories = EnumSet.noneOf(Category.class);
     private List<Command> commands = new ArrayList<>();
     private boolean verbose = false;
-    private String jarLocation;
+    private String jarLocation = "/home/mc/public/jar";
 
     public static void main(String[] args) throws Exception {
         try {

@@ -11,7 +11,7 @@ public enum Server implements PluginSet {
     HUB("Hub", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.HUB),
     EINS("Eins", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.HOME),
     ZWEI("Zwei", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.HOME),
-    MINE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Plugin.DUNGEONS),
+    MINE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.MINE),
     CREATIVE("Creative", Category.CORE, Category.ALL, Category.CREATIVE, Category.BUILD, Plugin.RAID, Plugin.ENEMY, Plugin.LINK_PORTAL),
     // Classic
     CAVETALE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD),
