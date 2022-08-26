@@ -15,6 +15,7 @@ import lombok.Getter;
 public enum Plugin implements PluginSet {
     ADVICE_ANIMALS("AdviceAnimals", "com.winthier.adviceanimals", "adviceanimals", "0.1-SNAPSHOT", Category.DEPRECATED),
     AFK("AFK", "com.cavetale.afk", "afk", "0.1-SNAPSHOT", Category.ALL),
+    ANTI_POPUP("AntiPopup", url("https://github.com/KaspianDev/AntiPopup/releases/download/5487999/AntiPopup-4.3.jar"), Category.ALL),
     AREA("Area", "com.cavetale.area", "area", "0.1-SNAPSHOT", Category.ALL),
     ARMOR_STAND_EDITOR("ArmorStandEditor", "io.github.rypofalem.armorstandeditor", "armorstandeditor", "1.17-25", Category.ALL),
     AUCTION("Auction", "com.cavetale.auction", "auction", "0.1-SNAPSHOT", Category.ALL),
