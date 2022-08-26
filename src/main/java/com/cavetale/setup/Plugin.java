@@ -153,7 +153,8 @@ public enum Plugin implements PluginSet {
     WORLD_EDIT("WorldEdit", "worldedit-bukkit/build/libs/worldedit-bukkit-7.3.0-SNAPSHOT-dist", Category.ALL),
     WORLD_GUARD("WorldGuard", "worldguard-bukkit/build/libs/worldguard-bukkit-7.0.6-SNAPSHOT-dist", Category.ALL),
     WORLD_MARKER("WorldMarker", "com.cavetale.worldmarker", "worldmarker", "0.1-SNAPSHOT", Category.CORE),
-    XMAS("Xmas", "com.cavetale.xmas", "xmas", "0.1-SNAPSHOT", Category.SEASONAL);
+    XMAS("Xmas", "com.cavetale.xmas", "xmas", "0.1-SNAPSHOT", Category.SEASONAL),
+    ;
 
     public final String name;
     public final URL downloadUrl;
