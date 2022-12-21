@@ -8,13 +8,17 @@ import lombok.Getter;
 public enum Server implements PluginSet {
     BASE("Base", Category.CORE, Category.ALL),
 
-    HUB("Hub", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.HUB),
-    EINS("Eins", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.HOME),
-    ZWEI("Zwei", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.HOME),
-    MINE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD, Category.MINE),
-    CREATIVE("Creative", Category.CORE, Category.ALL, Category.CREATIVE, Category.BUILD, Plugin.RAID, Plugin.ENEMY, Plugin.LINK_PORTAL),
+    VOID("Void", Server.BASE),
+    HUB("Hub", Server.BASE, Category.SURVIVAL, Category.BUILD, Category.HUB,
+        Plugin.STRUCTURE),
+    EINS("Eins", Server.BASE, Category.SURVIVAL, Category.BUILD, Category.HOME),
+    ZWEI("Zwei", Server.BASE, Category.SURVIVAL, Category.BUILD, Category.HOME),
+    MINE("Cavetale", Server.BASE, Category.SURVIVAL, Category.BUILD, Category.MINE),
+    CREATIVE("Creative", Server.BASE, Category.CREATIVE, Category.BUILD,
+             Plugin.ENEMY, Plugin.FESTIVAL, Plugin.LINK_PORTAL, Plugin.RACE, Plugin.RAID, Plugin.RESIDENT),
+    EVENT("Event", Server.BASE, Plugin.WORLDS),
     // Classic
-    CAVETALE("Cavetale", Category.CORE, Category.ALL, Category.SURVIVAL, Category.BUILD),
+    CAVETALE("Cavetale", Server.BASE, Category.SURVIVAL, Category.BUILD),
     ;
 
     public final String name;
