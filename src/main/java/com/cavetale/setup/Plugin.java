@@ -102,7 +102,7 @@ public enum Plugin implements PluginSet {
     PLUG_MAN("PlugMan", "com.rylinaux", "PlugMan", "2.1.7", Category.ALL),
     POCKET_MOB("PocketMob", "com.cavetale.pocketmob", "pocketmob", "0.1-SNAPSHOT", Category.SURVIVAL),
     POSTER("Poster", "com.cavetale.poster", "poster", "0.1-SNAPSHOT", Category.SURVIVAL),
-    PROTECT("Protect", "com.winthier.protect", "protect", "0.1-SNAPSHOT", Category.SURVIVAL),
+    PROTECT("Protect", "com.winthier.protect", "protect", "0.1-SNAPSHOT", Category.ALL),
     PROTOCOL_LIB("ProtocolLib", "com.comphenix.protocol", "ProtocolLib", "4.7.1-SNAPSHOT", Category.UTIL),
     PVPARENA("PVPArena", "com.cavetale.pvparena", "pvparena", "0.1-SNAPSHOT", Category.MINIGAME),
     QUIZ("Quiz", "com.winthier.quiz", "quiz", "0.1-SNAPSHOT", Category.DEPRECATED),
