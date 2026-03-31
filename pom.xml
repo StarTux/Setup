@@ -1,70 +1,96 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
 
+  <name>Setup</name>
+  <url>https://github.com/StarTux/Setup</url>
+  <description>Cavetale testing server setup utility.</description>
+
   <groupId>com.cavetale.setup</groupId>
   <artifactId>setup</artifactId>
   <version>0.1-SNAPSHOT</version>
-
-  <name>Setup</name>
-  <url>https://github.com/StarTux/Setup</url>
   <packaging>jar</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
   <build>
     <finalName>${project.name}</finalName>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <version>3.14.1</version>
         <configuration>
-          <source>21</source>
-          <target>21</target>
+          <release>25</release>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
-          <compilerArgs>
-            <arg>-Xlint:unchecked</arg>
-          </compilerArgs>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-	<version>3.2.2</version>
+        <version>3.5.0</version>
         <configuration>
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>com.cavetale.setup.Main</mainClass>
+              <mainClass>com.cavetale.setup.Setup</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
     </plugins>
-
   </build>
-  <repositories>
 
-    <!-- Cavetale Repo -->
+  <repositories>
     <repository>
       <id>cavetale</id>
       <url>https://cavetale.com/jenkins/plugin/repository/everything/</url>
     </repository>
-
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://gitlab.com/api/v4/projects/77321376/packages/maven</url>
+    </repository>
   </repositories>
+
   <dependencies>
-
-    <!-- Lombok -->
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.32</version>
-      <scope>provided</scope>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>24.1.0</version>
+        <scope>compile</scope>
     </dependency>
-
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.21.1</version>
+    </dependency>
+    <dependency>
+      <groupId>link.l-pf</groupId>
+      <artifactId>cmdlib</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>6.0.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>
